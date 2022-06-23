@@ -1,3 +1,4 @@
+import React, { useEffect, useState} from 'react';
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import "./home.scss";
@@ -6,8 +7,49 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 import CountUp from 'react-countup';
+import { getUsers, getServiceproviders,getAppointments } from '../../services/AuthService';
 
 const Home = () => {
+
+  const [users, setUsers] = useState([]);
+  const [serviceproviders, setServiceproviders] = useState([]);
+  const [appointments, setAppointments] = useState([]);
+
+  useEffect(() => {
+    GetUsers();
+    GetServiceproviders();
+    GetAppointments();
+  }, []);
+
+  const GetUsers = async () => {
+    try {
+      const response = await getUsers();
+      console.log(response.data.data);
+      setUsers(response.data.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const GetServiceproviders = async () => {
+    try {
+      const response = await getServiceproviders();
+      console.log(response.data.data);
+      setServiceproviders(response.data.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const GetAppointments= async () => {
+    try {
+      const response = await getAppointments();
+      console.log(response.data.data);
+      setAppointments(response.data.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   return (
     <div className="home">
       <Sidebar />
@@ -20,7 +62,7 @@ const Home = () => {
           <div className="widget">
             <div className="left">
               <span className="title">CLIENTS</span>
-              <span className="counter"> <CountUp duration={5} end={230} /></span>
+              <span className="counter"> <CountUp duration={5} end={users.length} /></span>
               <span className="link">See all clients</span>
             </div>
             <div className="right">
@@ -39,7 +81,7 @@ const Home = () => {
           <div className="widget">
             <div className="left">
               <span className="title">SERVICE PROVIDERS</span>
-              <span className="counter"><CountUp duration={5} end={54} /></span>
+              <span className="counter"><CountUp duration={5} end={serviceproviders.length} /></span>
               <span className="link">See all service providers</span>
             </div>
             <div className="right">
@@ -58,7 +100,7 @@ const Home = () => {
           <div className="widget">
             <div className="left">
               <span className="title">APPOINTMENTS</span>
-              <span className="counter"><CountUp duration={5} end={740} /></span>
+              <span className="counter"><CountUp duration={5} end={appointments.length} /></span>
               <span className="link">View all appointments</span>
             </div>
             <div className="right">
