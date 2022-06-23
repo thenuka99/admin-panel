@@ -1,1 +1,0 @@
-# Servicr - Admin Panel
