@@ -12,6 +12,23 @@ export const getUsers = () => {
     });
 };
 
+//service providers
+export const getServiceproviders = () => {
+    return axios.get(baseUrl + '/serviceProvider', {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+};
+
+//appointments
+export const getAppointments = () => {
+    return axios.get(baseUrl + '/appointments', {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+};
 //vault-folders
 export const newFolder = (data) => {
     return axios.post(baseUrl + 'folders/', data, {
