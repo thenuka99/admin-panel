@@ -1,6 +1,4 @@
 import React, { useEffect, useState} from 'react';
-import Sidebar from "../../components/sidebar/Sidebar";
-import Navbar from "../../components/navbar/Navbar";
 import "./home.scss";
 import "./widget.scss";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
@@ -8,6 +6,7 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 import CountUp from 'react-countup';
 import { getUsers, getServiceproviders,getAppointments } from '../../services/AuthService';
+import Navbar from '../../components/AdminNavComponent/AdminNavComponent';
 
 const Home = () => {
 
@@ -50,14 +49,13 @@ const Home = () => {
       console.log(e);
     }
   };
+
   return (
     <div className="home">
-      <Sidebar />
+      <Navbar/>
       <div className="homeContainer">
-        <Navbar />
 
         <div className="widgets">
-
           {/* clients */}
           <div className="widget">
             <div className="left">
@@ -136,10 +134,6 @@ const Home = () => {
             </div>
           </div>
 
-        </div>
-
-        <div className="charts">
-          
         </div>
       </div>
     </div>
