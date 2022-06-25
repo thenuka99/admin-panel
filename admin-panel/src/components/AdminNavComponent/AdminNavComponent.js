@@ -27,7 +27,7 @@ function AdminNavComponent() {
                             </NavLink>
                         </li>
                         <li >
-                            <NavLink to='/AdminCategoryPage' className={isActive =>isActive ? 'active':'navlink'}>
+                            <NavLink to='/category' className={isActive =>isActive ? 'active':'navlink'}>
                                 <i className='fa fa-list'></i>
                                 <span className= 'nav-text'>catagories</span>
                             </NavLink>
@@ -35,7 +35,7 @@ function AdminNavComponent() {
                         <li>
                             <NavLink to='/AdminTagsPage'className={isActive => isActive ? 'active':'navlink' }>
                                 <i className='fa fa-tag'></i>
-                                <span className='nav-text'>Appointment</span>
+                                <span className='nav-text'>Appointments</span>
                             </NavLink>
                         </li>
                     </ul>
