@@ -1,9 +1,11 @@
 /*eslint-disable */
 import React, { useEffect, useState } from 'react';
 import './CategoryListComponent.scss';
-import { deletecatagory, loadCats} from '../../../services/AuthService';
+import { deletecatagory, loadCategories} from '../../../services/AuthService';
 import { getDateTime } from '../../../helpers/TimeHelper';
 import { Link } from 'react-router-dom';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 import EditCategoryComponent from '../EditCategoryComponent/EditCategoryComponent.js';
 
 const CategoryListComponent = ({ reload }) => {
@@ -13,17 +15,17 @@ const CategoryListComponent = ({ reload }) => {
     const [editEnable, setEditEnable] = useState(false);
     //useEffects
     useEffect(() => {
-        loadCategories();
+        LoadCategories();
     }, []);
 
     useEffect(() => {
-        loadCategories();
+        LoadCategories();
     }, [reload]);
 
-    const loadCategories = async () => {
+    const LoadCategories = async () => {
 
         try {
-            const response = await loadCats();
+            const response = await loadCategories();
             console.log(response.data.data);
             setCategories(response.data.data);
         } catch (e) {
@@ -35,7 +37,7 @@ const CategoryListComponent = ({ reload }) => {
         try {
             const response = await deletecatagory(e);
             console.log('item deleted');
-            loadCategories();
+            LoadCategories();
         } catch (e) {
             print(e);
         }
@@ -48,10 +50,10 @@ const CategoryListComponent = ({ reload }) => {
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
-                        <th scope="col">Added on</th>
+                        {/* <th scope="col">Added on</th>
                         <th scope="col">Added by</th>
                         <th scope="col">Updated on</th>
-                        <th scope="col">Updated by</th>
+                        <th scope="col">Updated by</th> */}
                         <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
                     </tr>
@@ -61,16 +63,16 @@ const CategoryListComponent = ({ reload }) => {
                         categories.map((category) => (
                             <tr key={category.id}>
                                 <td data-label="Name"><h6>{category.name} </h6></td>
-                                <td data-label="Added on">{getDateTime(category.addedOn)}</td>
+                                {/* <td data-label="Added on">{getDateTime(category.addedOn)}</td>
                                 <td data-label="Added by">
                                     <Link to={`/user/${category.addedBy._id}`} className='linkuser'>{category.addedBy.first_name + ' ' + category.addedBy.last_name}</Link>
                                 </td>
                                 <td data-label="Updated on">{getDateTime(category.updatedOn)}</td>
                                 <td data-label="Updated by">
                                     <Link to={`/user/${category.updatedBy._id}`} className='linkuser'>{category.updatedBy.first_name + ' ' + category.updatedBy.last_name}</Link>
-                                </td>
-                                <td data-label="Edit" onClick={() => setEditEnable(true)}><i className='fas fa-pencil-alt'onClick={() => setCategory_id(category._id)}></i></td>
-                                <td data-label="Delete"><i className='fas fa-trash' onClick={() => deleteCategories(category._id)}></i></td>
+                                </td> */}
+                                <td data-label="Edit" onClick={() => setEditEnable(true)}></td>
+                                <td data-label="Delete"></td>
                             </tr>
                         ))
                     }
