@@ -32,22 +32,22 @@ export const getAppointments = () => {
 
 //category
 export const addcatagory = (data) => {
-    return axios.post(baseUrl + '/category', data, {
+    return axios.post(baseUrl + '/categories', data, {
         headers: {
             'Content-Type': 'application/json'
         }
     });
 };
 export const deletecatagory = (id) => {
-    return axios.delete(baseUrl + '/category/' + id, {
+    return axios.delete(baseUrl + '/categories/' + id, {
         headers: {
             'Content-Type': 'application/json'
         }
     });
 };
 
-export const loadCats = () => {
-    return axios.get(baseUrl + '/category', {
+export const loadCategories = () => {
+    return axios.get(baseUrl + '/categories', {
         headers: {
             'Content-Type': 'application/json'
         }
@@ -55,7 +55,7 @@ export const loadCats = () => {
 };
 
 export const loadCat = (id) => {
-    return axios.get(baseUrl + '/category/' + id, {
+    return axios.get(baseUrl + '/categories/' + id, {
         headers: {
             'Content-Type': 'application/json'
         }
@@ -63,7 +63,7 @@ export const loadCat = (id) => {
 };
 
 export const editcategory = (data) => {
-    return axios.put(baseUrl + '/category', data, {
+    return axios.put(baseUrl + '/categories', data, {
         headers: {
             'Content-Type': 'application/json'
         }
