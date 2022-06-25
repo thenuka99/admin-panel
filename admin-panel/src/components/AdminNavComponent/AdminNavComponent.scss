@@ -28,6 +28,7 @@
     ul {
       margin: 0;
       padding-left: 0 !important;
+      padding-top: 10px;
       li {
         position: relative;
         display: block;
@@ -53,15 +54,12 @@
         }
         .navlink {
           text-decoration: none;
+          color: rgb(255, 255, 255);
         }
         .active {
           text-decoration: none;
-          .nav-text {
-            color: rgba(240, 31, 75, 1);
-          }
-          .fa {
-            color: rgba(240, 31, 75, 1);
-          }
+          color: #000;
+          text-decoration: #000;
         }
       }
     }
