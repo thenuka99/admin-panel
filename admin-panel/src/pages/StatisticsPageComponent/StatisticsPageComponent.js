@@ -1,16 +1,15 @@
 /*eslint-disable */
 import React, { useEffect, useState } from 'react';
 import './StatisticsPageComponent.scss';
+import "./widget.scss";
 import AdminNavComponent from '../../components/AdminNavComponent/AdminNavComponent';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
-import Stack from '@mui/material/Stack';
 import CountUp from 'react-countup';
 import Box from '@mui/material/Box';
-import "./widget.scss";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
@@ -61,12 +60,10 @@ function StatisticsPageComponent() {
     return (
         <>
             <AdminNavComponent />
-
             <div className='StatisticsPage'>
                 <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
                     <Grid container spacing={3}>
 
-                        {/* user count */}
                         <Grid item xs={12} md={4} lg={3}>
                             {/* clients */}
                             <div className="widget">
@@ -88,7 +85,6 @@ function StatisticsPageComponent() {
                             </div>
                         </Grid>
 
-                        {/* category count */}
                         <Grid item xs={12} md={4} lg={3}>
                             {/* service providers */}
                             <div className="widget">
@@ -110,51 +106,49 @@ function StatisticsPageComponent() {
                             </div>
                         </Grid>
 
-                        {/* postcount */}
                         <Grid item xs={12} md={4} lg={3}>
-{/* appointments */}
-<div className="widget">
-            <div className="left">
-              <span className="title">APPOINTMENTS</span>
-              <span className="counter"><CountUp duration={5} end={appointments.length} /></span>
-              <span className="link">View all appointments</span>
-            </div>
-            <div className="right">
-            <div className="percentage positive"></div>
-              <ShoppingCartOutlinedIcon
-                className="icon"
-                style={{
-                  backgroundColor: "rgba(218, 165, 32, 0.2)",
-                  color: "goldenrod",
-                }}
-              />
-            </div>
-          </div>
+                            {/* appointments */}
+                            <div className="widget">
+                                <div className="left">
+                                    <span className="title">APPOINTMENTS</span>
+                                    <span className="counter"><CountUp duration={5} end={appointments.length} /></span>
+                                    <span className="link">View all appointments</span>
+                                </div>
+                                <div className="right">
+                                    <div className="percentage positive"></div>
+                                    <ShoppingCartOutlinedIcon
+                                        className="icon"
+                                        style={{
+                                            backgroundColor: "rgba(218, 165, 32, 0.2)",
+                                            color: "goldenrod",
+                                        }}
+                                    />
+                                </div>
+                            </div>
 
                         </Grid>
 
-                        {/* tags count */}
                         <Grid item xs={12} md={4} lg={3}>
-{/* earnings */}
-<div className="widget">
-            <div className="left">
-              <span className="title"> EARNINGS</span>
-              <span className="counter">Rs <CountUp duration={5} end={15300} /></span>
-              <span className="link">View all earnings</span>
-            </div>
-            <div className="right">
-            <div className="percentage positive"></div>
-              <div className="percentage positive">
-                <MonetizationOnOutlinedIcon
-                  className="icon"
-                  style={{
-                    backgroundColor: "rgba(0, 128, 0, 0.2)",
-                    color: "green",
-                  }}
-                />
-              </div>
-            </div>
-          </div>
+                            {/* earnings */}
+                            <div className="widget">
+                                <div className="left">
+                                    <span className="title"> EARNINGS</span>
+                                    <span className="counter">Rs <CountUp duration={5} end={15300} /></span>
+                                    <span className="link">View all earnings</span>
+                                </div>
+                                <div className="right">
+                                    <div className="percentage positive"></div>
+                                    <div className="percentage positive">
+                                        <MonetizationOnOutlinedIcon
+                                            className="icon"
+                                            style={{
+                                                backgroundColor: "rgba(0, 128, 0, 0.2)",
+                                                color: "green",
+                                            }}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
                         </Grid>
 
 
@@ -170,7 +164,7 @@ function StatisticsPageComponent() {
                                         <thead>
                                             <tr>
                                                 <th scope="col">Name</th>
-                                                <th scope="col">Batch</th>
+                                                <th scope="col">type</th>
                                                 <th scope="col">Mail</th>
                                             </tr>
                                         </thead>
@@ -179,9 +173,9 @@ function StatisticsPageComponent() {
                                                 users.map((user) => (
                                                     <tr key={user._id}>
                                                         <td data-label="Name">
-                                                            <h6><Link to={`/user/${user._id}`} className='linkuser'>{user.first_name + ' ' + user.last_name}</Link></h6>
+                                                            <h6><Link to={`/user/${user._id}`} className='linkuser'>{user.name}</Link></h6>
                                                         </td>
-                                                        <td data-label="batch"><h6>{`Batch ${user.batch}`}</h6></td>
+                                                        <td data-label="batch"><h6>{` ${user.userType}`}</h6></td>
                                                         <td data-label="batch"><h6>{user.email}</h6></td>
                                                     </tr>
                                                 ))

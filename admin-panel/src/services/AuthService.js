@@ -29,6 +29,7 @@ export const getAppointments = () => {
         }
     });
 };
+
 //vault-folders
 export const newFolder = (data) => {
     return axios.post(baseUrl + 'folders/', data, {
