@@ -4,8 +4,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/StatisticsPageComponent/StatisticsPageComponent";
 import NavbarComponent from './components/NavbarComponent/NavbarComponent';
 import CategoryPageComponent from './pages/CategoryPageComponent/CategoryPageComponent';
-// import LoginComponent from './components/Auth/LoginComponent/LoginComponent';
-// import SignupComponent from './components/Auth/SignupComponent/SignupComponent';
+import UserDashboardPageComponent from './pages/UserDashboardPageComponent/UserDashboardPageComponent';
+import SPDashboardPageComponent from './pages/SPDashboardPageComponent/SPDashboardPageComponent';
+import AppointmentPageComponent from './pages/AppointmentPageComponent/AppointmentPageComponent';
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/category" exact element={<CategoryPageComponent/>} />
-          {/* <Route path="/login" exact element={<LoginComponent />} />
-          <Route path="/signup" exact element={<SignupComponent />} /> */}
+          <Route path="/client" exact element={<UserDashboardPageComponent/>} />
+          <Route path="/serviceprovider" exact element={<SPDashboardPageComponent/>} />
+          <Route path="/appointment" exact element={<AppointmentPageComponent/>} />
         </Routes>
       </BrowserRouter>
     </div>
