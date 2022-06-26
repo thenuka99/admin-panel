@@ -15,13 +15,13 @@ function AdminNavComponent() {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to='/AdminUserPage' className={isActive => isActive ? 'active':'navlink' }>
+                            <NavLink to='/client' className={isActive => isActive ? 'active':'navlink' }>
                                 <i className='fa fa-user'></i>
                                 <span className='nav-text'> User Dashboard</span>
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to='/AdminUserPage' className={isActive => isActive ? 'active':'navlink' }>
+                            <NavLink to='/serviceprovider' className={isActive => isActive ? 'active':'navlink' }>
                                 <i className='fa fa-user'></i>
                                 <span className='nav-text'> Service Provider Dashboard</span>
                             </NavLink>
@@ -33,7 +33,7 @@ function AdminNavComponent() {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to='/AdminTagsPage'className={isActive => isActive ? 'active':'navlink' }>
+                            <NavLink to='/appointment'className={isActive => isActive ? 'active':'navlink' }>
                                 <i className='fa fa-tag'></i>
                                 <span className='nav-text'>Appointments</span>
                             </NavLink>
