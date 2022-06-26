@@ -13,10 +13,7 @@ const CategoryListComponent = ({ reload }) => {
     const [categories, setCategories] = useState([]);
     const [category_id, setCategory_id] = useState();
     const [editEnable, setEditEnable] = useState(false);
-    //useEffects
-    useEffect(() => {
-        LoadCategories();
-    }, []);
+    
 
     useEffect(() => {
         LoadCategories();
@@ -33,9 +30,9 @@ const CategoryListComponent = ({ reload }) => {
         }
     };
 
-    const deleteCategories = async (e) => {
+    const deleteCategories = async(id) => {
         try {
-            const response = await deletecatagory(e);
+            const response = await deletecatagory(id);
             console.log('item deleted');
             LoadCategories();
         } catch (e) {
@@ -50,10 +47,6 @@ const CategoryListComponent = ({ reload }) => {
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
-                        {/* <th scope="col">Added on</th>
-                        <th scope="col">Added by</th>
-                        <th scope="col">Updated on</th>
-                        <th scope="col">Updated by</th> */}
                         <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
                     </tr>
@@ -61,24 +54,16 @@ const CategoryListComponent = ({ reload }) => {
                 <tbody>
                     {
                         categories.map((category) => (
-                            <tr key={category.id}>
-                                <td data-label="Name"><h6>{category.name} </h6></td>
-                                {/* <td data-label="Added on">{getDateTime(category.addedOn)}</td>
-                                <td data-label="Added by">
-                                    <Link to={`/user/${category.addedBy._id}`} className='linkuser'>{category.addedBy.first_name + ' ' + category.addedBy.last_name}</Link>
-                                </td>
-                                <td data-label="Updated on">{getDateTime(category.updatedOn)}</td>
-                                <td data-label="Updated by">
-                                    <Link to={`/user/${category.updatedBy._id}`} className='linkuser'>{category.updatedBy.first_name + ' ' + category.updatedBy.last_name}</Link>
-                                </td> */}
-                                <td data-label="Edit" onClick={() => setEditEnable(true)}></td>
-                                <td data-label="Delete"></td>
+                            <tr key={category._id}>
+                                <td data-label="Name"><h4>{category.name} </h4></td>
+                                <td data-label="Edit" onClick={() => setEditEnable(true)}><EditIcon  onClick={() => setCategory_id(category._id)}/> </td>
+                                <td data-label="Delete"><DeleteIcon  onClick={() => deleteCategories(category._id)}/> </td>
                             </tr>
                         ))
                     }
                 </tbody>
             </table>
-            {editEnable && <EditCategoryComponent catagory_id={category_id}/>}
+            { <EditCategoryComponent catagory_id={category_id} trigger={editEnable} settrigger={setEditEnable}/>}
         </div>
     );
 };
