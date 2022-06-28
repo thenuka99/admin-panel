@@ -285,7 +285,7 @@ function StatisticsPageComponent() {
               <div className="userlist" id="userlist">
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                   <Typography component="header" variant="h6">
-                    <Box sx={{ textAlign: 'center', m: 1 }}>Users list</Box>
+                    <Box sx={{ textAlign: 'center',fontSize:'28px',fontWeight:'700',color:'#003459',paddingBottom:"20px", m: 1 }}>Users list</Box>
                   </Typography>
                   <table>
                     <thead>
