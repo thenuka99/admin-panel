@@ -8,14 +8,17 @@ import Typography from '@mui/material/Typography';
 import CountUp from 'react-countup';
 import Box from '@mui/material/Box';
 import './AppointmentPageComponent.scss';
-import { getAppointments } from '../../services/AuthService';
+import { getAppointments, getServiceprovider } from '../../services/AuthService';
 import { getDateTime } from '../../helpers/TimeHelper';
 
 const AppointmentPageComponent = () => {
   const [appointments, setAppointments] = useState([]);
+  //const [serviceprovider, setServiceprovider] = useState([]);
 
   useEffect(() => {
+    //loadServiceProvider();
     GetAppointments();
+    
   }, []);
 
   const GetAppointments = async () => {
@@ -23,10 +26,26 @@ const AppointmentPageComponent = () => {
       const response = await getAppointments();
       console.log(response.data.data);
       setAppointments(response.data.data);
+      console.log(appointments._id);
     } catch (e) {
       console.log(e);
     }
   };
+
+  // const loadServiceProvider = async (id) => {
+  //   try {
+  //     //console.log(id);
+  //     const response = await getServiceprovider(id);
+  //     //console.log(response.data.data);
+  //     setServiceprovider(response.data.data);
+     
+      
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  //   //return (serviceprovider.serviceProviderID.name);
+    
+  // };
 
   return (
     <div>
@@ -52,37 +71,39 @@ const AppointmentPageComponent = () => {
                     <tr>
                       <th scope="col">Client's Name</th>
                       <th scope="col">Service Provider's Name</th>
-                      <th scope="col">Client's address</th>
+                      <th scope="col">Address</th>
                       <th scope="col">Service Category</th>
-                      <th scope="col">Service</th>
-                      <th scope="col">price</th>
+                      <th scope="col">Price</th>
                       <th scope="col">Date</th>
-                     
                     </tr>
                   </thead>
                   <tbody>
                     {appointments.map((appointment) => (
                       <tr key={appointment._id}>
-                        <td data-label="Name">
-                          <h6>{appointment.client.name && appointment.client.name}</h6>
+                        <td data-label="Client's Name">
+                          <h6>
+                            {appointment.client.name && appointment.client.name}
+                          </h6>
                         </td>
-                        <td data-label="batch">
-                          {/* <h6>{appointment.serviceProvider.serviceProviderID}</h6> */}
+                        <td data-label="Service Provider's Name">
+                          <h6>
+                            {appointment.serviceProvider.serviceProviderID.name}
+                          </h6>
                         </td>
-                        <td data-label="batch">
-                          {/* <h6>{appointment.client.city}</h6> */}
+                        <td data-label="Address">
+                          <h6>{appointment.address}</h6>
                         </td>
-                        <td data-label="batch">
-                          {/* <h6>{appointment.serviceCategory.name}</h6> */}
+                        <td data-label="Service Category">
+                          <h6>{appointment.serviceCategory.name}</h6>
                         </td>
-                        <td data-label="batch">
-                          {/* <h6>{appointment.Service.title}</h6> */}
-                        </td>
-                        <td data-label="batch">
+
+                        <td data-label="Price">
                           <h6>Rs. {appointment.price && appointment.price}</h6>
                         </td>
-                        <td data-label="batch">
-                          <h6>{appointment.date && getDateTime(appointment.date)}</h6>
+                        <td data-label="Date">
+                          <h6>
+                            {appointment.date && getDateTime(appointment.date)}
+                          </h6>
                         </td>
                       </tr>
                     ))}
