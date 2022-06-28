@@ -4,6 +4,7 @@ import './CategoryPageComponent.scss';
 import { addcatagory} from '../../services/AuthService';
 import CatagoryList from './CategoryListComponent/CategoryListComponent.js';
 import AdminNavComponent from '../../components/AdminNavComponent/AdminNavComponent';
+import SearchBarComponent from '../../components/SearchBarComponent/SearchBarComponent';
 
 const CategoryPageComponent=()=> {
 
@@ -38,7 +39,8 @@ const CategoryPageComponent=()=> {
                     ></input>
                     <button type='submit' className='btnaddcatagory'>Add</button>
                 </form>
-                <div className='category_header'><p>All Categories</p></div>
+                <div className='category_header'><p className='header'>All Categories</p>
+                <SearchBarComponent text="Search Categories" className="Search"/></div>
                 <div className='catagories'>
                     <CatagoryList reload={reload}/>
                 </div>

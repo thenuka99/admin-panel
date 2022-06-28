@@ -43,7 +43,7 @@ const UserDashboardPageComponent = () => {
                 /> */}
           <p>All Clients</p>
         </div>
-        <SearchBarComponent/>
+        <SearchBarComponent text="Search Clients"/>
         <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
           <Grid item xs={12} id="users">
             <div className="userlist" id="userlist">

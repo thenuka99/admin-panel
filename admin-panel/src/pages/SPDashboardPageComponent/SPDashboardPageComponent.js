@@ -12,6 +12,7 @@ import CountUp from 'react-countup';
 import Box from '@mui/material/Box';
 
 import { getServiceproviders } from '../../services/AuthService';
+import SearchBarComponent from '../../components/SearchBarComponent/SearchBarComponent';
 
 const SPDashboardPageComponent = () => {
   const [serviceproviders, setServiceproviders] = useState([]);
@@ -40,6 +41,7 @@ const SPDashboardPageComponent = () => {
                 /> */}
           <p>All Service Providers</p>
         </div>
+        <SearchBarComponent text="Search Service Providers"/>
         <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
           <Grid item xs={12} id="users">
             <div className="userlist" id="userlist">
