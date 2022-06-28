@@ -38,6 +38,7 @@ const CategoryPageComponent=()=> {
                     ></input>
                     <button type='submit' className='btnaddcatagory'>Add</button>
                 </form>
+                <div className='category_header'><p>All Categories</p></div>
                 <div className='catagories'>
                     <CatagoryList reload={reload}/>
                 </div>
