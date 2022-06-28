@@ -15,7 +15,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
 import BookOnlineOutlinedIcon from '@mui/icons-material/BookOnlineOutlined';
 import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
-import SearchBarComponent from '../../components/SearchBarComponent/SearchBarComponent';
+
 import {
   getUsers,
   getServiceproviders,
@@ -266,7 +266,6 @@ function StatisticsPageComponent() {
                 </div>
               </div>
             </Grid>
-<SearchBarComponent/>
             {/* user list */}
             <Grid item xs={12} id="users">
               <div className="userlist" id="userlist">
