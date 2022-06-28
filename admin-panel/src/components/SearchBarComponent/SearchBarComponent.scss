@@ -1,0 +1,36 @@
+.searchbox {
+    background-color: aquamarine;
+    //width: calc((100% - 500px) * 0.25);
+    width:100%;
+    margin-right: auto;
+    margin-left: auto;
+    height: 100%;
+    // background-color: lightseagreen;
+
+    // @include flexbox;
+    display:flex;
+    justify-content: flex-start;
+    //position: relative;
+
+    input {
+      width: 80%;
+      height: 35px;
+      padding: 10px;
+      margin-left: 20px;
+
+      color: grey;
+      outline: none;
+      border: borderGreyLight;
+      box-sizing: border-box;
+      font-size: font-small;
+
+      &:focus {
+        border-color: rgb(90, 115, 182);
+      }
+    }
+
+    .searchbox_icon {
+        background-color: aqua;
+      width:20%;
+    }
+  }
