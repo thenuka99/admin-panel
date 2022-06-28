@@ -17,7 +17,7 @@ function AdminNavComponent() {
                         <li>
                             <NavLink to='/client' className={isActive => isActive ? 'active':'navlink' }>
                                 <i className='fa fa-user'></i>
-                                <span className='nav-text'> User Dashboard</span>
+                                <span className='nav-text'> Client Dashboard</span>
                             </NavLink>
                         </li>
                         <li>

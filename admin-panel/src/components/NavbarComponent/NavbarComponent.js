@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import './NavbarComponent.scss';
+import logo from "../../assets/servicr_logo.png"
 
 const NavbarComponent = () => {
 
@@ -10,7 +11,8 @@ const NavbarComponent = () => {
     <>
       <nav className='navbar'>
         <NavLink to='/' className='navbar-logo' >
-          ADMIN PANEL
+          <div className='navlogo'><img src={logo}/></div>
+          <p>ADMIN PANEL</p>
         </NavLink>
 
       </nav>
