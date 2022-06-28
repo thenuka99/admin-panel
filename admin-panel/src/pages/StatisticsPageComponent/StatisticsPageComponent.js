@@ -25,6 +25,7 @@ import {
 } from '../../services/AuthService';
 import { HashLink } from 'react-router-hash-link';
 import { NavLink } from 'react-router-dom';
+import LetteredAvatar from 'react-lettered-avatar';
 
 function StatisticsPageComponent() {
   const [users, setUsers] = useState([]);
@@ -276,6 +277,7 @@ function StatisticsPageComponent() {
                   <table>
                     <thead>
                       <tr>
+                        <th scope="col"></th>
                         <th scope="col">Name</th>
                         <th scope="col">type</th>
                         <th scope="col">Mail</th>
@@ -284,6 +286,9 @@ function StatisticsPageComponent() {
                     <tbody>
                       {users.map((user) => (
                         <tr key={user._id}>
+                          <td data-label="batch">
+                            <LetteredAvatar name={`${user.name}`} size={45} />
+                          </td>
                           <td data-label="Name">
                             <h6>
                               <Link

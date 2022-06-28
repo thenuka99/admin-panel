@@ -67,16 +67,16 @@ const AppointmentPageComponent = () => {
                           <h6>{appointment.client.name}</h6>
                         </td>
                         <td data-label="batch">
-                          <h6>{appointment.serviceProvider.serviceProviderID}</h6>
+                          {/* <h6>{appointment.serviceProvider.serviceProviderID}</h6> */}
                         </td>
                         <td data-label="batch">
-                          <h6>{appointment.client.city}</h6>
+                          {/* <h6>{appointment.client.city}</h6> */}
                         </td>
                         <td data-label="batch">
-                          <h6>{appointment.serviceCategory.name}</h6>
+                          {/* <h6>{appointment.serviceCategory.name}</h6> */}
                         </td>
                         <td data-label="batch">
-                          <h6>{appointment.Service.title}</h6>
+                          {/* <h6>{appointment.Service.title}</h6> */}
                         </td>
                         <td data-label="batch">
                           <h6>Rs. {appointment.price}</h6>

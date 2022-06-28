@@ -11,6 +11,7 @@ const CategoryPageComponent=()=> {
     //useStates
     const currentDate = new Date();
     const [reload, setReload] = useState(false);
+    const [search,setSearch] = useState('');
 
     const handleCatagorySubmit = async (e) => {
         e.preventDefault();
@@ -39,10 +40,11 @@ const CategoryPageComponent=()=> {
                     ></input>
                     <button type='submit' className='btnaddcatagory'>Add</button>
                 </form>
-                <div className='category_header'><p className='header'>All Categories</p>
-                <SearchBarComponent text="Search Categories" className="Search"/></div>
+                <div className='category_header'><p>All Categories</p>
+                <SearchBarComponent text="Search Categories" search={search} setSearch={setSearch}/>
+                </div>
                 <div className='catagories'>
-                    <CatagoryList reload={reload}/>
+                    <CatagoryList reload={reload} search={search} setSearch={setSearch}/>
                 </div>
             </div>
         </div>

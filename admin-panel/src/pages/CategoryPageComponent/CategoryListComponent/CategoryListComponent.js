@@ -8,7 +8,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditCategoryComponent from '../EditCategoryComponent/EditCategoryComponent.js';
 
-const CategoryListComponent = ({ reload }) => {
+const CategoryListComponent = ({ reload, search, setSearch }) => {
     //useStates
     const [categories, setCategories] = useState([]);
     const [category_id, setCategory_id] = useState();
@@ -39,6 +39,20 @@ const CategoryListComponent = ({ reload }) => {
             print(e);
         }
     };
+    const handleCategoriesSort = () => {
+        return categories
+          .filter((category) => {
+            if (search == '') {
+              return categories;
+            } else if (
+              category.name
+                .toLocaleLowerCase()
+                .includes(search.toLocaleLowerCase())
+            ) {
+              return categories;
+            }
+          });
+      };
 
     return (
         <div className='category_container'>
@@ -53,7 +67,7 @@ const CategoryListComponent = ({ reload }) => {
                 </thead>
                 <tbody>
                     {
-                        categories.map((category) => (
+                        handleCategoriesSort().map((category) => (
                             <tr key={category._id}>
                                 <td data-label="Name"><h4>{category.name} </h4></td>
                                 <td data-label="Edit" onClick={() => setEditEnable(true)}><EditIcon  onClick={() => setCategory_id(category._id)}/> </td>

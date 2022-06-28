@@ -14,9 +14,11 @@ import './UserDashboardPageComponent.scss';
 import SearchBarComponent from '../../components/SearchBarComponent/SearchBarComponent';
 
 import { getClients } from '../../services/AuthService';
+import LetteredAvatar from 'react-lettered-avatar';
 
 const UserDashboardPageComponent = () => {
   const [clients, setClients] = useState([]);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     GetClients();
@@ -32,6 +34,21 @@ const UserDashboardPageComponent = () => {
     }
   };
 
+  const handleClientsSort = () => {
+    return clients
+      .filter((user) => {
+        if (search == '') {
+          return clients;
+        } else if (
+          user.name
+            .toLocaleLowerCase()
+            .includes(search.toLocaleLowerCase())
+        ) {
+          return clients;
+        }
+      });
+  };
+
   return (
     <div>
       <AdminNavComponent />
@@ -43,7 +60,8 @@ const UserDashboardPageComponent = () => {
                 /> */}
           <p>All Clients</p>
         </div>
-        <SearchBarComponent text="Search Clients"/>
+        <SearchBarComponent text="Search Clients"  search={search}
+                setSearch={setSearch}/>
         <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
           <Grid item xs={12} id="users">
             <div className="userlist" id="userlist">
@@ -54,14 +72,18 @@ const UserDashboardPageComponent = () => {
                 <table>
                   <thead>
                     <tr>
+                      <th scope="col"></th>
                       <th scope="col">Name</th>
                       <th scope="col">Address</th>
                       <th scope="col">Mail</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {clients.map((user) => (
+                    {handleClientsSort().map((user) => (
                       <tr key={user._id}>
+                         <td data-label="batch">
+                         <LetteredAvatar name={`${user.name}`} size={45}/> 
+                        </td>
                         <td data-label="Name">
                           <h6>
                             <Link
@@ -75,7 +97,7 @@ const UserDashboardPageComponent = () => {
                         </td>
                         <td data-label="batch">
                           <h6>{` ${user.city}`}</h6>
-                        </td>
+                        </td> 
                         <td data-label="batch">
                           <h6>{user.email}</h6>
                         </td>

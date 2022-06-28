@@ -5,13 +5,15 @@ import {
   } from '@fortawesome/free-solid-svg-icons';
   import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function SearchBarComponent({text}) {
+function SearchBarComponent({text,search,setSearch}) {
   return (
     <div>
       <div className="searchbox">
         <input
           type="text"
           placeholder={text}
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
          
         />
         <div className="searchbox_icon">
