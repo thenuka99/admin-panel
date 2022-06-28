@@ -1,36 +1,37 @@
 .searchbox {
   //background-color: aquamarine;
   //width: calc((100% - 500px) * 0.25);
-  width: 30%;
+  width: 20%;
   margin-right: auto;
   margin-left: auto;
   height: 100%;
-  // background-color: lightseagreen;
 
   // @include flexbox;
   display: flex;
   justify-content: flex-start;
-  //position: relative;
-
+  outline: none;
+  border: 2px solid rgb(111, 111, 111);
+  box-sizing: border-box;
+  &:focus {
+    border: 2px solid rgb(76, 76, 76);
+  }
   input {
-    width: 80%;
+    width: 100%;
     height: 35px;
     padding: 10px;
-    margin-left: 20px;
+    margin-left: 0px;
+    border: none;
 
-    color: grey;
-    outline: none;
-    border: borderGreyLight;
-    box-sizing: border-box;
     font-size: font-small;
 
     &:focus {
-      border-color: rgb(90, 115, 182);
+      outline: none !important;
     }
   }
 
   .searchbox_icon {
     //background-color: aqua;
+    color: rgb(111, 111, 111);
     margin-top: 5px;
     margin-left: -25px;
   }

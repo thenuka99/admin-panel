@@ -12,9 +12,13 @@ import CountUp from 'react-countup';
 import Box from '@mui/material/Box';
 
 import { getServiceproviders } from '../../services/AuthService';
+import SearchBarComponent from '../../components/SearchBarComponent/SearchBarComponent';
+import LetteredAvatar from 'react-lettered-avatar';
+
 
 const SPDashboardPageComponent = () => {
   const [serviceproviders, setServiceproviders] = useState([]);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     GetServiceproviders();
@@ -29,6 +33,20 @@ const SPDashboardPageComponent = () => {
       console.log(e);
     }
   };
+
+  const handleServiceProvidersSort = () => {
+    return serviceproviders.filter((user) => {
+      if (search == '') {
+        return serviceproviders;
+      } else if (
+        user.serviceProviderID.name
+          .toLocaleLowerCase()
+          .includes(search.toLocaleLowerCase())
+      ) {
+        return serviceproviders;
+      }
+    });
+  };
   return (
     <div>
       <AdminNavComponent />
@@ -40,6 +58,11 @@ const SPDashboardPageComponent = () => {
                 /> */}
           <p>All Service Providers</p>
         </div>
+        <SearchBarComponent
+          text="Search Service Providers"
+          search={search}
+          setSearch={setSearch}
+        />
         <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
           <Grid item xs={12} id="users">
             <div className="userlist" id="userlist">
@@ -50,19 +73,27 @@ const SPDashboardPageComponent = () => {
                 <table>
                   <thead>
                     <tr>
+                      <th scope="col"></th>
                       <th scope="col">Name</th>
                       <th scope="col">Category</th>
                       <th scope="col">Mail</th>
-                      <th scope="col">Reviews</th>
+                      <th scope="col">Address</th>
                       <th scope="col">Approved Status</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {serviceproviders.map((user) => (
+                    {handleServiceProvidersSort().map((user) => (
                       <tr key={user._id}>
+                        <td data-label="batch">
+                         <LetteredAvatar name={`${user.serviceProviderID.name}`} size={45}/> 
+                        </td>
                         <td data-label="Name">
                           <h6>
-                            <Link to={`/user/${user._id}`} className="linkuser"  style={{color: 'black' ,textDecoration: 'none'}}>
+                            <Link
+                              to={`/user/${user._id}`}
+                              className="linkuser"
+                              style={{ color: 'black', textDecoration: 'none' }}
+                            >
                               {user.serviceProviderID.name}
                             </Link>
                           </h6>
@@ -74,10 +105,12 @@ const SPDashboardPageComponent = () => {
                           <h6>{user.serviceProviderID.email}</h6>
                         </td>
                         <td data-label="batch">
-                          <h6>4.2</h6>
+                          <h6>{user.serviceProviderID.city}</h6>
                         </td>
                         <td data-label="batch">
-                          <h6>{user.isApprovedStatus ? "Pending":"Approved"}</h6>
+                          <h6>
+                            {user.isApprovedStatus ? 'Pending' : 'Approved'}
+                          </h6>
                         </td>
                       </tr>
                     ))}
