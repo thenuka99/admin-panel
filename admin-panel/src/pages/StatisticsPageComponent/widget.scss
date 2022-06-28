@@ -30,6 +30,17 @@
       font-size: 12px;
       border-bottom: 1px solid gray;
     }
+    .admin_link{
+
+      span{
+        color:black;
+
+        &:hover{
+          color:red;
+        }
+
+        }
+      }
 
     .percentage {
       display: flex;

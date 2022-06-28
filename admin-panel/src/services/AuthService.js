@@ -12,6 +12,15 @@ export const getUsers = () => {
     });
 };
 
+//get all clients
+export const getClients = () => {
+    return axios.get(baseUrl + '/users/clients', {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+};
+
 //service providers
 export const getServiceproviders = () => {
     return axios.get(baseUrl + '/serviceProvider', {
@@ -69,53 +78,3 @@ export const editcategory = (data) => {
         }
     });
 };
-
-
-//vault-folders
-// export const newFolder = (data) => {
-//     return axios.post(baseUrl + 'folders/', data, {
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     });
-// };
-
-// export const getFolders = (id) => {
-//     return axios.get(baseUrl + 'folders/folderId/'+ id, {
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     });
-// };
-
-// export const getFoldershome = () => {
-//     return axios.get(baseUrl + 'folders/folderId', {
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     });
-// };
-
-// export const getFolder = (id) => {
-//     return axios.get(baseUrl + 'folders/' + id, {
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     });
-// };
-
-// export const updateFolder = (data) => {
-//     return axios.put(baseUrl + 'folders/', data, {
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     });
-// };
-
-// export const deleteFolder = (id) => {
-//     return axios.delete(baseUrl + 'folders/' + id, {
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     });
-// };
