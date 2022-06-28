@@ -55,7 +55,7 @@ const AppointmentPageComponent = () => {
                       <th scope="col">Client's address</th>
                       <th scope="col">Service Category</th>
                       <th scope="col">Service</th>
-                      <th scope="col">Hourly Charge</th>
+                      <th scope="col">price</th>
                       <th scope="col">Date</th>
                      
                     </tr>
@@ -64,7 +64,7 @@ const AppointmentPageComponent = () => {
                     {appointments.map((appointment) => (
                       <tr key={appointment._id}>
                         <td data-label="Name">
-                          <h6>{appointment.client.name}</h6>
+                          <h6>{appointment.client.name && appointment.client.name}</h6>
                         </td>
                         <td data-label="batch">
                           {/* <h6>{appointment.serviceProvider.serviceProviderID}</h6> */}
@@ -79,10 +79,10 @@ const AppointmentPageComponent = () => {
                           {/* <h6>{appointment.Service.title}</h6> */}
                         </td>
                         <td data-label="batch">
-                          <h6>Rs. {appointment.price}</h6>
+                          <h6>Rs. {appointment.price && appointment.price}</h6>
                         </td>
                         <td data-label="batch">
-                          <h6>{getDateTime(appointment.date)}</h6>
+                          <h6>{appointment.date && getDateTime(appointment.date)}</h6>
                         </td>
                       </tr>
                     ))}

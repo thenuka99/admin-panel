@@ -33,6 +33,7 @@ function StatisticsPageComponent() {
   const [appointments, setAppointments] = useState([]);
   const [categories, setCategories] = useState([]);
   const [clients, setClients] = useState([]);
+  const [sumEarning, setSumEarning] = useState(0);
 
   useEffect(() => {
     GetUsers();
@@ -41,6 +42,9 @@ function StatisticsPageComponent() {
     GetCategories();
     GetClients();
   }, []);
+  useEffect(() => {
+    Calearnings();
+  }, [appointments]);
 
   const GetUsers = async () => {
     try {
@@ -70,6 +74,7 @@ function StatisticsPageComponent() {
     } catch (e) {
       console.log(e);
     }
+    Calearnings();
   };
   const GetCategories = async () => {
     try {
@@ -89,6 +94,14 @@ function StatisticsPageComponent() {
       console.log(e);
     }
   };
+  const Calearnings = () => {
+    let earning = 0;
+    appointments.map((appointment) => {
+      earning += appointment.price;
+    })
+    console.log(earning)
+    setSumEarning(earning)
+  }
 
   return (
     <>
@@ -220,7 +233,7 @@ function StatisticsPageComponent() {
                 <div className="left">
                   <span className="title"> EARNINGS</span>
                   <span className="counter">
-                    Rs <CountUp duration={5} end={15300} />
+                    Rs <CountUp duration={5} end={sumEarning} />
                   </span>
                   <span className="link">View all earnings</span>
                 </div>
