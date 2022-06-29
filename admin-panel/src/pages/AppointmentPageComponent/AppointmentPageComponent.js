@@ -3,22 +3,22 @@ import AdminNavComponent from '../../components/AdminNavComponent/AdminNavCompon
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import Link from '@mui/material/Link';
-import Typography from '@mui/material/Typography';
-import CountUp from 'react-countup';
-import Box from '@mui/material/Box';
 import './AppointmentPageComponent.scss';
-import { getAppointments, getServiceprovider } from '../../services/AuthService';
+import { getAppointments } from '../../services/AuthService';
 import { getDateTime } from '../../helpers/TimeHelper';
+import { Tag } from 'antd';
+import {
+  CheckCircleOutlined,
+  CloseCircleOutlined,
+  SyncOutlined,
+} from '@ant-design/icons';
 
 const AppointmentPageComponent = () => {
   const [appointments, setAppointments] = useState([]);
-  //const [serviceprovider, setServiceprovider] = useState([]);
 
   useEffect(() => {
-    //loadServiceProvider();
     GetAppointments();
-    
+
   }, []);
 
   const GetAppointments = async () => {
@@ -32,30 +32,11 @@ const AppointmentPageComponent = () => {
     }
   };
 
-  // const loadServiceProvider = async (id) => {
-  //   try {
-  //     //console.log(id);
-  //     const response = await getServiceprovider(id);
-  //     //console.log(response.data.data);
-  //     setServiceprovider(response.data.data);
-     
-      
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  //   //return (serviceprovider.serviceProviderID.name);
-    
-  // };
-
   return (
     <div>
       <AdminNavComponent />
       <div className="admincategory">
         <div className="appointment_header">
-          {/* <Table
-                    columns={columns}
-                    dataSource={data}
-                /> */}
           <p>All Appointments</p>
         </div>
 
@@ -63,18 +44,15 @@ const AppointmentPageComponent = () => {
           <Grid item xs={12} id="users">
             <div className="userlist" id="userlist">
               <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                {/* <Typography component="header" variant="h6"  >
-                                        <Box sx={{ textAlign: 'center', m: 1 }}>Users list</Box>
-                                    </Typography> */}
                 <table>
                   <thead>
                     <tr>
                       <th scope="col">Client's Name</th>
                       <th scope="col">Service Provider's Name</th>
-                      <th scope="col">Address</th>
                       <th scope="col">Service Category</th>
                       <th scope="col">Price</th>
                       <th scope="col">Date</th>
+                      <th scope="col">Status</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -90,9 +68,6 @@ const AppointmentPageComponent = () => {
                             {appointment.serviceProvider.serviceProviderID.name}
                           </h6>
                         </td>
-                        <td data-label="Address">
-                          <h6>{appointment.address}</h6>
-                        </td>
                         <td data-label="Service Category">
                           <h6>{appointment.serviceCategory.name}</h6>
                         </td>
@@ -104,6 +79,15 @@ const AppointmentPageComponent = () => {
                           <h6>
                             {appointment.date && getDateTime(appointment.date)}
                           </h6>
+                        </td>
+                        <td data-label="status">
+                          <h6>{!appointment.serviceisAcceptedStatus ?
+                            <Tag icon={<SyncOutlined spin />} color="warning">Pending</Tag>
+                            :
+                            appointment.serviceAcceptedStatus ?
+                              <Tag icon={<CheckCircleOutlined />} color="success">Approved</Tag>
+                              :
+                              <Tag icon={<CloseCircleOutlined />} color="error">Rejected</Tag>}</h6>
                         </td>
                       </tr>
                     ))}
