@@ -97,7 +97,6 @@ const SPDashboardPageComponent = () => {
                       <th scope="col">Address</th>
                       <th scope="col">Approved Status</th>
                       <th scope="col"></th>
-                      <th scope="col"></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -131,12 +130,16 @@ const SPDashboardPageComponent = () => {
                             {user.isApprovedStatus ? 'Approved' : 'Not Approved'}
                           </h6>
                         </td>
+                        {!user.isApprovedStatus ? 
                         <td data-label="batch">
                          <button className='status_approve_button'onClick={() => handleUpdateStatus(user._id, true)}>Approve</button>
                         </td>
+                        :
                         <td data-label="batch">
                         <button className='status_decline_button' onClick={() => handleUpdateStatus(user._id, false)}>Decline</button>
                         </td>
+                         }
+
                       </tr>
                     ))}
                   </tbody>
