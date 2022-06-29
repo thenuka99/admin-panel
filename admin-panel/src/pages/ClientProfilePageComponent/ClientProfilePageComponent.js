@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import './ProfilePageComponent.css';
+import './ClientProfilePageComponent.css';
 import profile from '../../assets/User.jpg';
 import { Form } from 'antd';
 import { Label } from 'bizcharts';
@@ -9,12 +9,14 @@ import { Rate } from 'antd';
 import AdminNavComponent from '../../components/AdminNavComponent/AdminNavComponent';
 
 import { getUser } from '../../services/AuthService';
-function ProfilePageComponent() {
+function ClientProfilePageComponent() {
   const { userID } = useParams();
   const [user, setUser] = useState([]);
 
   useEffect(() => {
     GetUser();
+    console.log(userID);
+
   }, []);
 
   const GetUser = async () => {
@@ -27,6 +29,7 @@ function ProfilePageComponent() {
       console.log(e);
     }
   };
+
 
   return (
     <div>
@@ -41,7 +44,7 @@ function ProfilePageComponent() {
               {/* <img src={profile} /> */}
               <LetteredAvatar name={`${user.name}`}size={100} className="avatar" />
             </div>
-            <Rate disabled defaultValue={4.5} />
+          {(user.userType == "sp") && <Rate disabled defaultValue={4.5} />}
           </div>
           <div class="lower-container">
             <div>
@@ -51,7 +54,7 @@ function ProfilePageComponent() {
                 <h2 class="status">{user.name}</h2>
                 <label for="userid">User Id</label>
                 <h2 class="status">{user._id}</h2>
-                <label for="usertype"> User Type</label>
+                <label for="usertype">User Type</label>
                 <h2 class="status">{user.userType}</h2>
                 <label for="useremail">User Email</label>
                 <h2 class="status">{user.email}</h2>
@@ -66,4 +69,4 @@ function ProfilePageComponent() {
   );
 }
 
-export default ProfilePageComponent;
+export default ClientProfilePageComponent;

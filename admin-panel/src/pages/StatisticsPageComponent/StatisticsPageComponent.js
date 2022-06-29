@@ -392,9 +392,9 @@ function StatisticsPageComponent() {
                           <td data-label="Name">
                             <h6>
                               <NavLink to=
-                              {`/profile/${user._id}`}
+                              {`/clientprofile/${user._id}`}
                                 className="linkuser"
-                              >
+                                style={{color: 'rgba(0, 0, 0, 0.85)' ,textDecoration: 'none'}}>
                                 {user.name}
                               </NavLink>
                             </h6>
