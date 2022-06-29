@@ -103,7 +103,7 @@ const SPDashboardPageComponent = () => {
                         <td data-label="Name">
                           <h6>
                             <NavLink
-                              to={`/spprofile/${user._id}`}
+                              to={`/serviceproviderprofile/${user._id}`}
                               className="linkuser"
                               style={{ color: 'black', textDecoration: 'none' }}
                             >

@@ -128,8 +128,8 @@ div.lettered-avatar-wrapper.light {
       position: absolute; */
 }
 
-div.lettered-avatar {
-  font-size: 24px;
+.image-container div.lettered-avatar {
+  font-size: 40px;
 }
 
 ul.ant-rate.ant-rate-disabled {

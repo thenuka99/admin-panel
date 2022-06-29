@@ -36,8 +36,8 @@ export const getServiceproviders = () => {
   });
 };
 
-export const getServiceprovider = (id) => {
-  return axios.get(baseUrl + '/serviceProvider/' + id, {
+export const getServiceProvider = (id) => {
+  return axios.get(baseUrl + '/serviceProvider/' + id , {
     headers: {
       'Content-Type': 'application/json',
     },
