@@ -7,13 +7,14 @@
   align-items: center;
   font-size: 1.2rem;
   border-bottom: solid;
-  border-bottom-color: rgba(240, 31, 75, 1);
+  border-bottom-color: rgba(0, 52, 89, 1);
   position: sticky;
   top: 0;
   font-family: "League Spartan", sans-serif !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
   z-index: 1000;
+  box-shadow: 0px 22px 33px -18px rgba(0,0,0,0.13);
 }
 .navbar-logo {
   display: flex;
