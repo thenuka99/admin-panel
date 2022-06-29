@@ -6,7 +6,6 @@ import AdminNavComponent from '../../components/AdminNavComponent/AdminNavCompon
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import CountUp from 'react-countup';
 import Box from '@mui/material/Box';
@@ -14,7 +13,6 @@ import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
 import BookOnlineOutlinedIcon from '@mui/icons-material/BookOnlineOutlined';
 import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
-import Area from "../../components/Chart/Area"
 
 import {
   getUsers,
@@ -368,8 +366,6 @@ function StatisticsPageComponent() {
                 </div>
               </div>
             </Grid>
-
-            <Area />
 
             {/* user list */}
             <Grid item xs={12} id="users">
