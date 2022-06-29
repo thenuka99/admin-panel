@@ -350,8 +350,14 @@ function StatisticsPageComponent() {
                   <span className="counter">
                     Rs <CountUp duration={5} end={sumEarning} />
                   </span>
-                  <span className="link">View all earnings</span>
-                </div>
+                  <NavLink
+                    to="/appointment"
+                    style={{ color: 'black', textDecoration: 'none' }}
+                    className="admin_link"
+                  >
+                    <span className="link">View all appointments</span>
+                  </NavLink>
+                  </div>
                 <div className="right">
                   <div className="percentage positive"></div>
                   <div className="percentage positive">
