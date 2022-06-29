@@ -8,6 +8,7 @@ import UserDashboardPageComponent from './pages/UserDashboardPageComponent/UserD
 import SPDashboardPageComponent from './pages/SPDashboardPageComponent/SPDashboardPageComponent';
 import AppointmentPageComponent from './pages/AppointmentPageComponent/AppointmentPageComponent';
 import ProfilePageComponent from './pages/ProfilePageComponent/ProfilePageComponent';
+import Error from './pages/Error/Error';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/serviceprovider" exact element={<SPDashboardPageComponent/>} />
           <Route path="/appointment" exact element={<AppointmentPageComponent/>} />
           <Route path="/profile/:userID" exact element={<ProfilePageComponent/>} />
+          <Route path='*' element={<Error/>} />
         </Routes>
       </BrowserRouter>
     </div>
