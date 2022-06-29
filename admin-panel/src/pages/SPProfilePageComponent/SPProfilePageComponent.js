@@ -18,13 +18,13 @@ function SPProfilePageComponent() {
   useEffect(() => {
     GetServiceProvider();
     console.log(spID);
-  }, );
+  }, [spID]);
 
 
   const GetServiceProvider = async () => {
     try {
       const response = await getServiceProvider(spID);
-      console.log(response.data.data);
+      //console.log(response.data.data);
       setServiceProvider(response.data.data);
     } catch (e) {
       console.log(e);
@@ -37,7 +37,7 @@ function SPProfilePageComponent() {
       <AdminNavComponent />
       <div>
         <div className="header">
-          <h1>User Profile</h1>
+          <h1>Service Provider Profile</h1>
         </div>
         <div class="card-container">
           <div class="upper-container">
@@ -50,19 +50,18 @@ function SPProfilePageComponent() {
           <div class="lower-container">
             <div>
               <Form>
-                <label for="username"> User Name</label>
+                <label for="username">Service Provider Name</label>
                 {/* <input type="text" id="fname" name="fname"></input><br/> */}
                 <h2 class="status">{serviceprovider.serviceProviderID.name}</h2>
-                <label for="userid">User Id</label>
-                <h2 class="status">{serviceprovider.serviceProviderID._id}</h2>
-                <label for="usertype">User Type</label>
-                <h2 class="status">{serviceprovider.serviceProviderID.userType}</h2>
-                <label for="useremail">User Email</label>
+                <label for="useremail">Service Provider Email</label>
                 <h2 class="status">{serviceprovider.serviceProviderID.email}</h2>
-                <label for="userlocation">User Location</label>
-                <h2 class="status">{serviceprovider.serviceProviderID.city}</h2>
+                <label for="useremail">Service Category</label>
+                <h2 class="status">{serviceprovider.serviceProviderID.email}</h2>
                 <label for="userlocation">Approved Status</label>
                 <h2 class="status">{serviceprovider.isApprovedStatus ? "Approved":"Reject"}</h2>
+                <label for="userlocation">Service Provider City</label>
+                <h2 class="status">{serviceprovider.serviceProviderID.city}</h2>
+                
 
               </Form>
             </div>

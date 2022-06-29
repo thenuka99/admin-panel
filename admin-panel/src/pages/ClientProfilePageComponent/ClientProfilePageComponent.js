@@ -36,7 +36,7 @@ function ClientProfilePageComponent() {
       <AdminNavComponent />
       <div>
         <div className="header">
-          <h1>User Profile</h1>
+          <h1>{(user.userType == "sp") ? "Service Provider Profile" : "Client Profile"}</h1>
         </div>
         <div class="card-container">
           <div class="upper-container">
@@ -49,16 +49,16 @@ function ClientProfilePageComponent() {
           <div class="lower-container">
             <div>
               <Form>
-                <label for="username"> User Name</label>
+                <label for="username">{(user.userType == "sp") ? "Service Provider Name" : "Client Name"}</label>
                 {/* <input type="text" id="fname" name="fname"></input><br/> */}
                 <h2 class="status">{user.name}</h2>
-                <label for="userid">User Id</label>
+                <label for="userid">{(user.userType == "sp") ? "Service Provider ID" : "Client ID"}</label>
                 <h2 class="status">{user._id}</h2>
-                <label for="usertype">User Type</label>
+                <label for="usertype">Type</label>
                 <h2 class="status">{user.userType}</h2>
-                <label for="useremail">User Email</label>
+                <label for="useremail">{(user.userType == "sp") ? "Service Provider Email" : "Client Email"}</label>
                 <h2 class="status">{user.email}</h2>
-                <label for="userlocation">User Location</label>
+                <label for="userlocation">{(user.userType == "sp") ? "Service Provider City" : "Client City"}</label>
                 <h2 class="status">{user.city}</h2>
               </Form>
             </div>
