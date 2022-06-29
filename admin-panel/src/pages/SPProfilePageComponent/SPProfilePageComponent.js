@@ -45,7 +45,7 @@ function SPProfilePageComponent() {
               {/* <img src={profile} /> */}
               {/* <LetteredAvatar name={`${serviceprovider.serviceProviderID.name}`}size={100} className="avatar" /> */}
             </div>
-          <Rate disabled defaultValue={4.5} />
+          <Rate disabled value={4.5} />
           </div>
           <div class="lower-container">
             <div>
