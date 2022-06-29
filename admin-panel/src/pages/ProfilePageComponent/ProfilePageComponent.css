@@ -119,16 +119,23 @@ div.lettered-avatar-wrapper.dark {
     font-size: 40px;
 } */
 div.lettered-avatar-wrapper.light {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-  
-    /* 
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+
+  /* 
       margin: 0;
       position: absolute; */
-  }
+}
 
-div.lettered-avatar{
+div.lettered-avatar {
+  font-size: 26px;
+}
 
-    font-size: 26px;
-  }
+ul.ant-rate.ant-rate-disabled {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+
+  transform: translate(35%, 160px);
+}

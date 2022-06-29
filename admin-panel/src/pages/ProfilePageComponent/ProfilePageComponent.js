@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router';
 import './ProfilePageComponent.css';
 import profile from '../../assets/User.jpg';
 import { Form } from 'antd';
@@ -8,6 +9,8 @@ import { Rate } from 'antd';
 
 
 function ProfilePageComponent() {
+
+    const { userID } = useParams();
   return (
     <div>
       <div className="header">
@@ -19,7 +22,7 @@ function ProfilePageComponent() {
               {/* <img src={profile} /> */}
               <LetteredAvatar name="Vidith" size={100} className="avatar"/> 
           </div>
-          <Rate/>
+          <Rate disabled defaultValue={4.5}/>
         </div>
         <div class="lower-container">
           <div>
