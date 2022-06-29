@@ -6,12 +6,10 @@ import AdminNavComponent from '../../components/AdminNavComponent/AdminNavCompon
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import CountUp from 'react-countup';
 import Box from '@mui/material/Box';
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
 import BookOnlineOutlinedIcon from '@mui/icons-material/BookOnlineOutlined';
 import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
@@ -123,7 +121,7 @@ function StatisticsPageComponent() {
       console.log(e);
     }
   };
-  
+
   const Calearnings = () => {
     let earning = 0;
     approveAppointments.map((appointment) => {
@@ -369,14 +367,12 @@ function StatisticsPageComponent() {
               </div>
             </Grid>
 
-            
-
             {/* user list */}
             <Grid item xs={12} id="users">
               <div className="userlist" id="userlist">
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                   <Typography component="header" variant="h6">
-                    <Box sx={{ textAlign: 'center',fontSize:'28px',fontWeight:'700',color:'#003459',paddingBottom:"20px", m: 1 }}>Users list</Box>
+                    <Box sx={{ textAlign: 'center', fontSize: '28px', fontWeight: '700', color: '#003459', paddingBottom: "20px", m: 1 }}>Users list</Box>
                   </Typography>
                   <table>
                     <thead>
