@@ -7,7 +7,6 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
 import { Tag } from 'antd';
-
 import { getServiceproviders, updateServiceprovider } from '../../services/AuthService';
 import SearchBarComponent from '../../components/SearchBarComponent/SearchBarComponent';
 import LetteredAvatar from 'react-lettered-avatar';

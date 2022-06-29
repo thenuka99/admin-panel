@@ -115,3 +115,12 @@ export const editcategory = (data) => {
     },
   });
 };
+
+//reviews
+export const getReviews = (id) => {
+  return axios.get(baseUrl + '/reviews/user/'+ id, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+};
