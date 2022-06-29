@@ -304,12 +304,12 @@ function StatisticsPageComponent() {
                           </td>
                           <td data-label="Name">
                             <h6>
-                              <Link
-                                to={`/user/${user._id}`}
+                              <NavLink to=
+                              {`/profile/${user._id}`}
                                 className="linkuser"
                               >
                                 {user.name}
-                              </Link>
+                              </NavLink>
                             </h6>
                           </td>
                           <td data-label="batch">
