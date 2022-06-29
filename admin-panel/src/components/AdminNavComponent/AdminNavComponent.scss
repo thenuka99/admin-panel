@@ -1,13 +1,6 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
-@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
-@font-face {
-  font-family: "Titillium Web";
-  font-style: normal;
-  font-weight: 300;
-  src: local("Titillium WebLight"), local("TitilliumWeb-Light"),
-    url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff)
-      format("woff");
-}
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap");
+
 .adminpage {
   .main-menu {
     background: rgba(0, 52, 89, 1);
@@ -42,15 +35,15 @@
           text-align: center;
           vertical-align: middle;
           font-size: 1.5rem;
-          color: rgba(153, 153, 153, 0.904);
+          color: #ffffff;
         }
         .nav-text {
           position: relative;
           display: table-cell;
           vertical-align: middle;
           width: 190px;
-          font-family: "Titillium Web", sans-serif;
-          color: rgba(255, 255, 255, 0.808);
+          font-family: "League Spartan", sans-serif !important;
+          color: #ffffff;
         }
         .navlink {
           text-decoration: none;
