@@ -9,7 +9,7 @@
   
   .card-container {
     margin-top: 150px;
-    width: 400px;
+    width: 500px;
     height: 600px;
     background: #fff;
     border-radius: 6px;
@@ -23,17 +23,13 @@
   }
   .upper-container {
     height: 200px;
-    /* background: #b0e2fb; */
-    /* background-image: url('../../assets/client_welcome.png'); */
     opacity: 0.6;
   }
   .image-container {
     display: block;
     position: absolute;
-    /* background: #140584; */
     width: 100%;
     height: 100px;
-    /* padding: 5px; */
     transform: translate(0, 50px);
   }
   .image-container img {
@@ -110,22 +106,12 @@
     display: block;
     margin-right: auto;
     margin-left: auto;
-  
-    /* 
-      margin: 0;
-      position: absolute; */
   }
-  /* div.lettered-avatar{
-      font-size: 40px;
-  } */
+
   div.lettered-avatar-wrapper.light {
     display: block;
     margin-right: auto;
     margin-left: auto;
-  
-    /* 
-        margin: 0;
-        position: absolute; */
   }
   
   div.lettered-avatar {
@@ -138,5 +124,36 @@
     margin-left: auto;
   
     transform: translate(35%, 160px);
+  }
+  
+  .profile{
+    width : 40%;
+    float :left;
+    padding-left: 5%;
+    height: 1000px;
+  }
+  .reviews{
+    width : 55%;
+    float :right;
+    margin-right: 3%;
+    margin-bottom: 200px;
+    margin-top: 250px;
+    height: 600px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0px 1px 10px 1px #000;
+    overflow-y: auto;
+  }
+  .reviews_topic{
+    text-align: center;
+    font-size: 25px;
+    color: rgba(0, 52, 89, 1);
+    font-weight:600;
+  }
+  span.MuiRating-root.MuiRating-sizeMedium.MuiRating-readyOnly.css-ryrseu-MuiRating-root{
+    display: flex;
+    justify-content: center;
+  
+    transform: translate(0%, 160px);
   }
   

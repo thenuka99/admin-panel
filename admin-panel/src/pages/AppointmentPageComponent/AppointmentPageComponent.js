@@ -84,7 +84,7 @@ const AppointmentPageComponent = () => {
                           <h6>{!appointment.serviceisAcceptedStatus ?
                             <Tag icon={<SyncOutlined spin />} color="warning">Pending</Tag>
                             :
-                            appointment.serviceAcceptedStatus ?
+                            !appointment.serviceAcceptedStatus ?
                               <Tag icon={<CheckCircleOutlined />} color="success">Approved</Tag>
                               :
                               <Tag icon={<CloseCircleOutlined />} color="error">Rejected</Tag>}</h6>
