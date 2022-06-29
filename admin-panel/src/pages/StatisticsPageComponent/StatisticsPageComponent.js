@@ -22,6 +22,8 @@ import {
   getAppointments,
   loadCategories,
   getClients,
+  getApproveAppointments,
+  getRejectAppointments
 } from '../../services/AuthService';
 import { HashLink } from 'react-router-hash-link';
 import { NavLink } from 'react-router-dom';
@@ -31,6 +33,8 @@ function StatisticsPageComponent() {
   const [users, setUsers] = useState([]);
   const [serviceproviders, setServiceproviders] = useState([]);
   const [appointments, setAppointments] = useState([]);
+  const [rejectAppointments, setRejectAppointments] = useState([]);
+  const [approveAppointments, setApproveAppointments] = useState([]);
   const [categories, setCategories] = useState([]);
   const [clients, setClients] = useState([]);
   const [sumEarning, setSumEarning] = useState(0);
@@ -41,10 +45,13 @@ function StatisticsPageComponent() {
     GetAppointments();
     GetCategories();
     GetClients();
+    GetApproveAppointments();
+    GetRejectAppointments();
   }, []);
+
   useEffect(() => {
     Calearnings();
-  }, [appointments]);
+  }, [approveAppointments]);
 
   const GetUsers = async () => {
     try {
@@ -74,8 +81,29 @@ function StatisticsPageComponent() {
     } catch (e) {
       console.log(e);
     }
+  };
+
+  const GetApproveAppointments = async () => {
+    try {
+      const response = await getApproveAppointments();
+      console.log(response.data.data);
+      setApproveAppointments(response.data.data);
+    } catch (e) {
+      console.log(e);
+    }
     Calearnings();
   };
+
+  const GetRejectAppointments = async () => {
+    try {
+      const response = await getRejectAppointments();
+      console.log(response.data.data);
+      setRejectAppointments(response.data.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   const GetCategories = async () => {
     try {
       const response = await loadCategories();
@@ -85,6 +113,7 @@ function StatisticsPageComponent() {
       console.log(e);
     }
   };
+
   const GetClients = async () => {
     try {
       const response = await getClients();
@@ -94,14 +123,15 @@ function StatisticsPageComponent() {
       console.log(e);
     }
   };
+  
   const Calearnings = () => {
     let earning = 0;
-    appointments.map((appointment) => {
+    approveAppointments.map((appointment) => {
       earning += appointment.price;
     })
     console.log(earning)
     setSumEarning(earning)
-  }
+  };
 
   return (
     <>
@@ -199,12 +229,99 @@ function StatisticsPageComponent() {
             </Grid>
 
             <Grid item xs={12} md={4} lg={3}>
-              {/* appointments */}
+              {/* service providers */}
               <div className="widget">
                 <div className="left">
-                  <span className="title">APPOINTMENTS</span>
+                  <span className="title">SERVICE CATEGORIES</span>
+                  <span className="counter">
+                    <CountUp duration={5} end={categories.length} />
+                  </span>
+                  <NavLink
+                    to="/category"
+                    style={{ color: 'black', textDecoration: 'none' }}
+                    className="admin_link"
+                  >
+                    <span className="link">See all service categories</span>
+                  </NavLink>
+                </div>
+                <div className="right">
+                  <div className="percentage positive"></div>
+                  <CategoryOutlinedIcon
+                    className="icon"
+                    style={{
+                      color: 'purple',
+                      backgroundColor: 'rgba(128, 0, 128, 0.2)',
+                    }}
+                  />
+                </div>
+              </div>
+            </Grid>
+
+            <Grid item xs={12} md={4} lg={3}>
+              {/* all appointments */}
+              <div className="widget">
+                <div className="left">
+                  <span className="title">ALL APPOINTMENTS</span>
                   <span className="counter">
                     <CountUp duration={5} end={appointments.length} />
+                  </span>
+                  <NavLink
+                    to="/appointment"
+                    style={{ color: 'black', textDecoration: 'none' }}
+                    className="admin_link"
+                  >
+                    <span className="link">View all appointments</span>
+                  </NavLink>
+                </div>
+                <div className="right">
+                  <div className="percentage positive"></div>
+                  <BookOnlineOutlinedIcon
+                    className="icon"
+                    style={{
+                      backgroundColor: 'rgba(218, 165, 32, 0.2)',
+                      color: 'goldenrod',
+                    }}
+                  />
+                </div>
+              </div>
+            </Grid>
+
+            <Grid item xs={12} md={4} lg={3}>
+              {/* Approved appointments */}
+              <div className="widget">
+                <div className="left">
+                  <span className="title">APPROVED APPOINTMENTS</span>
+                  <span className="counter">
+                    <CountUp duration={5} end={approveAppointments.length} />
+                  </span>
+                  <NavLink
+                    to="/appointment"
+                    style={{ color: 'black', textDecoration: 'none' }}
+                    className="admin_link"
+                  >
+                    <span className="link">View all appointments</span>
+                  </NavLink>
+                </div>
+                <div className="right">
+                  <div className="percentage positive"></div>
+                  <BookOnlineOutlinedIcon
+                    className="icon"
+                    style={{
+                      backgroundColor: 'rgba(218, 165, 32, 0.2)',
+                      color: 'goldenrod',
+                    }}
+                  />
+                </div>
+              </div>
+            </Grid>
+
+            <Grid item xs={12} md={4} lg={3}>
+              {/* reject appointments */}
+              <div className="widget">
+                <div className="left">
+                  <span className="title">REJECTED APPOINTMENTS</span>
+                  <span className="counter">
+                    <CountUp duration={5} end={rejectAppointments.length} />
                   </span>
                   <NavLink
                     to="/appointment"
@@ -252,34 +369,8 @@ function StatisticsPageComponent() {
               </div>
             </Grid>
 
-            <Grid item xs={12} md={4} lg={3}>
-              {/* service providers */}
-              <div className="widget">
-                <div className="left">
-                  <span className="title">SERVICE CATEGORIES</span>
-                  <span className="counter">
-                    <CountUp duration={5} end={categories.length} />
-                  </span>
-                  <NavLink
-                    to="/category"
-                    style={{ color: 'black', textDecoration: 'none' }}
-                    className="admin_link"
-                  >
-                    <span className="link">See all service categories</span>
-                  </NavLink>
-                </div>
-                <div className="right">
-                  <div className="percentage positive"></div>
-                  <CategoryOutlinedIcon
-                    className="icon"
-                    style={{
-                      color: 'purple',
-                      backgroundColor: 'rgba(128, 0, 128, 0.2)',
-                    }}
-                  />
-                </div>
-              </div>
-            </Grid>
+            
+
             {/* user list */}
             <Grid item xs={12} id="users">
               <div className="userlist" id="userlist">
