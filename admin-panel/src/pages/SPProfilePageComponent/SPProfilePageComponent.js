@@ -126,7 +126,7 @@ const SPProfilePageComponent = () => {
           {
             reviews.map((review) => (
               <Card >
-              {/* <Link to={`/user/${post.addedBy._id}`} className='post-avatar-name'> */}
+              <Link to={`/clientprofile/${review.addedBy._id}`} className='post-avatar-name'>
               <CardHeader
                 avatar={
                   <LetteredAvatar name={review.addedBy.name} size={50} className="avatar" />
@@ -134,7 +134,7 @@ const SPProfilePageComponent = () => {
                 title={review.addedBy.name}
                 subheader={getDateTime(review.addedOn)}
               />
-              {/* </Link> */}
+              </Link>
               <CardContent>
                 <Typography variant="h7" color="text.primary">{review.review}</Typography>
               </CardContent>
