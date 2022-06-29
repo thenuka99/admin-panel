@@ -8,23 +8,24 @@ import LetteredAvatar from 'react-lettered-avatar';
 import { Rate } from 'antd';
 import AdminNavComponent from '../../components/AdminNavComponent/AdminNavComponent';
 
-import { getServiceprovider, getUser } from '../../services/AuthService';
+import { getServiceProvider, getUser } from '../../services/AuthService';
 
 
 function SPProfilePageComponent() {
   const { spID } = useParams();
-  const [serviceprovider, setServiceprovider] = useState([]);
+  const [serviceprovider, setServiceProvider] = useState([]);
 
   useEffect(() => {
-    GetServiceprovider();
-  }, [spID]);
+    GetServiceProvider();
+    console.log(spID);
+  }, );
 
 
-  const GetServiceprovider = async () => {
+  const GetServiceProvider = async () => {
     try {
-      const response = await getServiceprovider(spID);
+      const response = await getServiceProvider(spID);
       console.log(response.data.data);
-      setServiceprovider(response.data.data);
+      setServiceProvider(response.data.data);
     } catch (e) {
       console.log(e);
     }
