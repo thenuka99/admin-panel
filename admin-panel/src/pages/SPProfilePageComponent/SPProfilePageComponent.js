@@ -47,6 +47,7 @@ function SPProfilePageComponent() {
             </div>
           <Rate disabled value={4.5} />
           </div>
+          <p3>4.5 Ratings</p3>
           <div class="lower-container">
             <div>
               <Form>
