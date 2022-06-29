@@ -1,146 +1,137 @@
-
-.StatisticsPage{
-    padding-left: 60px;
-    background-color: rgba(255, 255, 255, 0.185);
+.StatisticsPage {
+  padding-left: 60px;
+  background-color: rgba(255, 255, 255, 0.185);
 }
 table {
-    border: 1px solid #ccc;
-    border-collapse: collapse;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    table-layout: fixed;
-  }
-  
-  table caption {
-    font-size: 1.5em;
-    margin: .5em 0 .75em;
-  }
-  
-  table tr {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    padding: .35em;
-  }
-  
-  table th,
-  table td {
-    padding: .625em;
-    text-align: center;
-    font-size: 1.1em;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
 
-    button.status_approve_button{
+table caption {
+  font-size: 1.5em;
+  margin: 0.5em 0 0.75em;
+}
 
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 0.35em;
+}
+
+table th,
+table td {
+  padding: 0.625em;
+  text-align: center;
+  font-size: 1.1em;
+
+  button.status_approve_button {
+    background-color: #0f96c3;
+    color: white;
+    background: #0f96c3;
+    // display: block;
+    // margin:auto;
+    //margin-left: -120px;
+
+    background-color: white;
+    border: 2px solid #0f96c3;
+    color: #0f96c3;
+    //   box-sizing: border-box;
+    width: 100px;
+    height: 40px;
+    &:hover {
       background-color: #0f96c3;
-        color: white;
-        background: #0f96c3;
-        // display: block;
-        // margin:auto;  
-        //margin-left: -120px;
-  
-        background-color: white;
-      border: 2px solid #0F96C3;
-      color: #0F96C3;
-        //   box-sizing: border-box;
-        width: 100px;
-        height: 40px;
-        &:hover{
-          background-color:#0F96C3;
-          color: white;
-
-        }
-        span {
-          font-family: 'Roboto';
-          font-style: normal;
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 19px;
-  
-        }
-  }
-  button.status_decline_button{
-
       color: white;
-      background: #0f96c3;
-      // display: block;
-      // margin:auto;  
-      //margin-left: -120px;
+    }
+    span {
+      font-family: "League Spartan", sans-serif !important;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 19px;
+    }
+  }
+  button.status_decline_button {
+    color: white;
+    background: #0f96c3;
+    // display: block;
+    // margin:auto;
+    //margin-left: -120px;
 
-      background-color: white;
+    background-color: white;
     border: 2px solid #ff0000;
     color: #ff0000;
-      //   box-sizing: border-box;
-      width: 100px;
-      height: 40px;
-      &:hover{
-        background-color:#ff0000;
-        color: white;
-
-      }
-      span {
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 19px;
-
-      }
+    //   box-sizing: border-box;
+    width: 100px;
+    height: 40px;
+    &:hover {
+      background-color: #ff0000;
+      color: white;
+    }
+    span {
+      font-family: "League Spartan", sans-serif !important;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 19px;
+    }
+  }
 }
-  }
-  
-  table th {
-    font-size: .85em;
-    letter-spacing: .1em;
-    text-transform: uppercase;
+
+table th {
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
   }
 
-  
-  @media screen and (max-width: 600px) {
-    table {
-      border: 0;
-    }
-  
-    table caption {
-      font-size: 1.3em;
-    }
-    
-    table thead {
-      border: none;
-      clip: rect(0 0 0 0);
-      height: 1px;
-      margin: -1px;
-      overflow: hidden;
-      padding: 0;
-      position: absolute;
-      width: 1px;
-    }
-    
-    table tr {
-      border-bottom: 3px solid #ddd;
-      display: block;
-      margin-bottom: .625em;
-    }
-    
-    table td {
-      border-bottom: 1px solid #ddd;
-      display: block;
-      font-size: .8em;
-      text-align: right;
-    }
-    
-    table td::before {
-      /*
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 0.625em;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+
+  table td::before {
+    /*
       * aria-label has no advantage, it won't be read inside a table
       content: attr(aria-label);
       */
-      content: attr(data-label);
-      float: left;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-    
-    table td:last-child {
-      border-bottom: 0;
-    }
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
   }
-  
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
