@@ -28,6 +28,7 @@ function ProfilePageComponent() {
     }
   };
 
+
   return (
     <div>
       <AdminNavComponent />
@@ -41,7 +42,7 @@ function ProfilePageComponent() {
               {/* <img src={profile} /> */}
               <LetteredAvatar name={`${user.name}`}size={100} className="avatar" />
             </div>
-            <Rate disabled defaultValue={4.5} />
+          {(user.userType == "sp") && <Rate disabled defaultValue={4.5} />}
           </div>
           <div class="lower-container">
             <div>

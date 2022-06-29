@@ -8,18 +8,18 @@
 }
 
 .card-container {
-  margin-top: 100px;
+  margin-top: 150px;
   width: 400px;
   height: 600px;
   background: #fff;
   border-radius: 6px;
-  position: absolute;
-  top: 0%;
-  left: 50%;
-  transform: translate(-50%, 100px);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transform: translate(0%, 100px);
   box-shadow: 0px 1px 10px 1px #000;
   overflow: hidden;
-  display: inline-block;
+
 }
 .upper-container {
   height: 200px;
