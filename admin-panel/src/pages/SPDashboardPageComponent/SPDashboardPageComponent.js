@@ -11,6 +11,7 @@ import { Tag } from 'antd';
 import { getServiceproviders, updateServiceprovider } from '../../services/AuthService';
 import SearchBarComponent from '../../components/SearchBarComponent/SearchBarComponent';
 import LetteredAvatar from 'react-lettered-avatar';
+import { NavLink } from 'react-router-dom';
 
 
 const SPDashboardPageComponent = () => {
@@ -101,13 +102,13 @@ const SPDashboardPageComponent = () => {
                         </td>
                         <td data-label="Name">
                           <h6>
-                            <Link
-                              to={`/user/${user._id}`}
+                            <NavLink
+                              to={`/spprofile/${user._id}`}
                               className="linkuser"
                               style={{ color: 'black', textDecoration: 'none' }}
                             >
                               {user.serviceProviderID.name}
-                            </Link>
+                            </NavLink>
                           </h6>
                         </td>
                         <td data-label="batch">

@@ -15,6 +15,7 @@ import SearchBarComponent from '../../components/SearchBarComponent/SearchBarCom
 
 import { getClients } from '../../services/AuthService';
 import LetteredAvatar from 'react-lettered-avatar';
+import { NavLink } from 'react-router-dom';
 
 const UserDashboardPageComponent = () => {
   const [clients, setClients] = useState([]);
@@ -86,13 +87,13 @@ const UserDashboardPageComponent = () => {
                         </td>
                         <td data-label="Name">
                           <h6>
-                            <Link
-                              to={`/user/${user._id}`}
+                            <NavLink
+                              to={`/clientprofile/${user._id}`}
                               className="linkuser"
                               style={{ color: 'black', textDecoration: 'none' }}
                             >
                               {user.name}
-                            </Link>
+                            </NavLink>
                           </h6>
                         </td>
                         <td data-label="batch">

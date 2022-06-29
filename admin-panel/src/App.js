@@ -7,7 +7,8 @@ import CategoryPageComponent from './pages/CategoryPageComponent/CategoryPageCom
 import UserDashboardPageComponent from './pages/UserDashboardPageComponent/UserDashboardPageComponent';
 import SPDashboardPageComponent from './pages/SPDashboardPageComponent/SPDashboardPageComponent';
 import AppointmentPageComponent from './pages/AppointmentPageComponent/AppointmentPageComponent';
-import ProfilePageComponent from './pages/ProfilePageComponent/ProfilePageComponent';
+import ClientProfilePageComponent from './pages/ClientProfilePageComponent/ClientProfilePageComponent';
+import SPProfilePageComponent from './pages/SPProfilePageComponent/SPProfilePageComponent';
 import Error from './pages/Error/Error';
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
           <Route path="/client" exact element={<UserDashboardPageComponent/>} />
           <Route path="/serviceprovider" exact element={<SPDashboardPageComponent/>} />
           <Route path="/appointment" exact element={<AppointmentPageComponent/>} />
-          <Route path="/profile/:userID" exact element={<ProfilePageComponent/>} />
+          <Route path="/clientprofile/:userID" exact element={<ClientProfilePageComponent/>} />
+          <Route path="/spprofile/:spID" exact element={<SPProfilePageComponent/>} />
           <Route path='*' element={<Error/>} />
         </Routes>
       </BrowserRouter>
