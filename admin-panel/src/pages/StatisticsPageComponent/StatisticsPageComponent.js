@@ -124,7 +124,7 @@ function StatisticsPageComponent() {
 
   const Calearnings = () => {
     let earning = 0;
-    approveAppointments.map((appointment) => {
+    rejectAppointments.map((appointment) => {
       earning += appointment.price;
     })
     console.log(earning)
