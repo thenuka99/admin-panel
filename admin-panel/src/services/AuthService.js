@@ -61,6 +61,21 @@ export const getAppointments = () => {
   });
 };
 
+export const getApproveAppointments = () => {
+  return axios.get(baseUrl + '/appointments/approve', {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+};
+
+export const getRejectAppointments = () => {
+  return axios.get(baseUrl + '/appointments/reject', {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+};
 //category
 export const addcatagory = (data) => {
   return axios.post(baseUrl + '/categories', data, {
