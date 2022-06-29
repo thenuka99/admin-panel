@@ -27,6 +27,64 @@ table {
   table td {
     padding: .625em;
     text-align: center;
+
+    button.status_approve_button{
+
+      background-color: #0f96c3;
+        color: white;
+        background: #0f96c3;
+        // display: block;
+        // margin:auto;  
+        //margin-left: -120px;
+  
+        background-color: white;
+      border: 2px solid #0F96C3;
+      color: #0F96C3;
+        //   box-sizing: border-box;
+        width: 100px;
+        height: 40px;
+        &:hover{
+          background-color:#0F96C3;
+          color: white;
+
+        }
+        span {
+          font-family: 'Roboto';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 19px;
+  
+        }
+  }
+  button.status_decline_button{
+
+      color: white;
+      background: #0f96c3;
+      // display: block;
+      // margin:auto;  
+      //margin-left: -120px;
+
+      background-color: white;
+    border: 2px solid #ff0000;
+    color: #ff0000;
+      //   box-sizing: border-box;
+      width: 100px;
+      height: 40px;
+      &:hover{
+        background-color:#ff0000;
+        color: white;
+
+      }
+      span {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 19px;
+
+      }
+}
   }
   
   table th {
@@ -34,6 +92,7 @@ table {
     letter-spacing: .1em;
     text-transform: uppercase;
   }
+
   
   @media screen and (max-width: 600px) {
     table {

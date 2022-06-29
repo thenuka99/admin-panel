@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import CountUp from 'react-countup';
 import Box from '@mui/material/Box';
 
-import { getServiceproviders } from '../../services/AuthService';
+import { getServiceproviders, updateServiceprovider } from '../../services/AuthService';
 import SearchBarComponent from '../../components/SearchBarComponent/SearchBarComponent';
 import LetteredAvatar from 'react-lettered-avatar';
 
@@ -19,6 +19,7 @@ import LetteredAvatar from 'react-lettered-avatar';
 const SPDashboardPageComponent = () => {
   const [serviceproviders, setServiceproviders] = useState([]);
   const [search, setSearch] = useState('');
+
 
   useEffect(() => {
     GetServiceproviders();
@@ -29,6 +30,7 @@ const SPDashboardPageComponent = () => {
       const response = await getServiceproviders();
       console.log(response.data.data);
       setServiceproviders(response.data.data);
+      //approve=true;
     } catch (e) {
       console.log(e);
     }
@@ -47,6 +49,21 @@ const SPDashboardPageComponent = () => {
       }
     });
   };
+
+  const handleUpdateStatus = async (spId,isApprovedStatus) => {
+
+    try {
+      const response = await updateServiceprovider({
+        id: spId,
+        isApprovedStatus : isApprovedStatus,
+      });
+      console.log(response);
+      window.location.reload(false);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <div>
       <AdminNavComponent />
@@ -79,6 +96,8 @@ const SPDashboardPageComponent = () => {
                       <th scope="col">Mail</th>
                       <th scope="col">Address</th>
                       <th scope="col">Approved Status</th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -109,8 +128,14 @@ const SPDashboardPageComponent = () => {
                         </td>
                         <td data-label="batch">
                           <h6>
-                            {user.isApprovedStatus ? 'Pending' : 'Approved'}
+                            {user.isApprovedStatus ? 'Approved' : 'Not Approved'}
                           </h6>
+                        </td>
+                        <td data-label="batch">
+                         <button className='status_approve_button'onClick={() => handleUpdateStatus(user._id, true)}>Approve</button>
+                        </td>
+                        <td data-label="batch">
+                        <button className='status_decline_button' onClick={() => handleUpdateStatus(user._id, false)}>Decline</button>
                         </td>
                       </tr>
                     ))}

@@ -36,6 +36,14 @@ export const getServiceprovider = (id) => {
   });
 };
 
+export const updateServiceprovider = (data) => {
+  return axios.put(baseUrl + '/serviceProvider/', data, {
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  });
+};
+
 //appointments
 export const getAppointments = () => {
   return axios.get(baseUrl + '/appointments', {
