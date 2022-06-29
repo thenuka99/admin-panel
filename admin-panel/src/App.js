@@ -20,7 +20,7 @@ function App() {
           <Route path="/client" exact element={<UserDashboardPageComponent/>} />
           <Route path="/serviceprovider" exact element={<SPDashboardPageComponent/>} />
           <Route path="/appointment" exact element={<AppointmentPageComponent/>} />
-          <Route path="/profile" exact element={<ProfilePageComponent/>} />
+          <Route path="/profile/:userID" exact element={<ProfilePageComponent/>} />
         </Routes>
       </BrowserRouter>
     </div>

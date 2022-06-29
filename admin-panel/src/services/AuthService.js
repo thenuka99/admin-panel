@@ -10,6 +10,14 @@ export const getUsers = () => {
   });
 };
 
+export const getUser = (id) => {
+  return axios.get(baseUrl + '/users' +id , {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+};
+
 //get all clients
 export const getClients = () => {
   return axios.get(baseUrl + '/users/clients', {
