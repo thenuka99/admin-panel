@@ -7,6 +7,7 @@ import CategoryPageComponent from './pages/CategoryPageComponent/CategoryPageCom
 import UserDashboardPageComponent from './pages/UserDashboardPageComponent/UserDashboardPageComponent';
 import SPDashboardPageComponent from './pages/SPDashboardPageComponent/SPDashboardPageComponent';
 import AppointmentPageComponent from './pages/AppointmentPageComponent/AppointmentPageComponent';
+import ProfilePageComponent from './pages/ProfilePageComponent/ProfilePageComponent';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/client" exact element={<UserDashboardPageComponent/>} />
           <Route path="/serviceprovider" exact element={<SPDashboardPageComponent/>} />
           <Route path="/appointment" exact element={<AppointmentPageComponent/>} />
+          <Route path="/profile" exact element={<ProfilePageComponent/>} />
         </Routes>
       </BrowserRouter>
     </div>
