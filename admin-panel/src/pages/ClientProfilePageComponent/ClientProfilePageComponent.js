@@ -44,9 +44,7 @@ function ClientProfilePageComponent() {
               {/* <img src={profile} /> */}
               <LetteredAvatar name={`${user.name}`}size={100} className="avatar" />
             </div>
-          {(user.userType == "sp") && <Rate disabled value={4.5} />}
           </div>
-          {(user.userType == "sp") && <p3>4.5 Ratings</p3>}
           <div class="lower-container">
             <div>
               <Form>
