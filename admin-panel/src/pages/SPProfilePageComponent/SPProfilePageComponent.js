@@ -10,7 +10,7 @@ import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
-import { getServiceProvider, getUser, getReviews } from '../../services/AuthService';
+import { getServiceProvider, getUser, getReviews,loadCat } from '../../services/AuthService';
 import Rating from '@mui/material/Rating';
 import { getDateTime } from '../../helpers/TimeHelper';
 
@@ -19,6 +19,7 @@ const SPProfilePageComponent = () => {
   const { spID } = useParams();
   const [serviceprovider, setServiceProvider] = useState([]);
   const [user, setUser] = useState([]);
+  const [category, setCategory] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [starrating, setRating] = useState(0);
 
@@ -28,6 +29,7 @@ const SPProfilePageComponent = () => {
   }, [spID]);
 
   useEffect(() => {
+    GetCategory();
     Getuser();
   }, [serviceprovider]);
 
@@ -55,6 +57,16 @@ const SPProfilePageComponent = () => {
       console.log(e);
     }
   };
+
+  const GetCategory = async () => {
+    try {
+      const response = await loadCat(serviceprovider.categoryID._id);
+      console.log(response.data.data);
+      setCategory(response.data.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   const GetReviews = async () => {
     try {
       const response = await getReviews(spID);
@@ -77,6 +89,8 @@ const SPProfilePageComponent = () => {
     setRating(rating)
 
   };
+    let x=parseFloat(starrating);
+    console.log(x);
 
   return (
     <div>
@@ -93,9 +107,10 @@ const SPProfilePageComponent = () => {
                   <div class="image-container">
                     <LetteredAvatar name={`${user.name}`} size={100} className="avatar" />
                   </div>
-                  <Rating name="half-rating-read" defaultValue={starrating} precision={0.5} readOnly />
-                  <p>{`${starrating}/5`}</p>
+                  <Rating name="half-rating-read"  value={x} readOnly />
+                  {/* <p>{`${starrating}/5`}</p> */}
                 </div>
+              <p3>{`${starrating}/5`} &nbsp;Ratings</p3>
                 <div class="lower-container">
                   <div>
                     <Form>
@@ -103,10 +118,10 @@ const SPProfilePageComponent = () => {
                       <h2 class="status">{user.name}</h2>
                       <label for="useremail">Service Provider Email</label>
                       <h2 class="status">{user.email}</h2>
-                      <label for="useremail">Service Provider ID</label>
-                      <h2 class="status">{user._id}</h2>
+                      {/* <label for="useremail">Service Provider ID</label>
+                      <h2 class="status">{user._id}</h2> */}
                       <label for="useremail">Service Category</label>
-                      <h2 class="status">{user.email}</h2>
+                      <h2 class="status">{category.name}</h2>
                       <label for="userlocation">Approved Status</label>
                       <h2 class="status">{serviceprovider.isApprovedStatus ? "Approved" : "Reject"}</h2>
                       <label for="userlocation">Service Provider City</label>
@@ -140,7 +155,7 @@ const SPProfilePageComponent = () => {
               </CardContent>
               <CardActions>
                 <Typography variant="body2" color="text.secondary">
-                {`${review.starRating}/5`}
+                <p2 style={{ color: 'rgba(0, 52, 89, 1)'}}> Rating - {`${review.starRating}/5`}</p2>
                 </Typography>
               </CardActions>
             </Card>

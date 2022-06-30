@@ -24,7 +24,6 @@
   height: 200px;
   /* background: #b0e2fb; */
   /* background-image: url('../../assets/client_welcome.png'); */
-  opacity: 0.6;
 }
 .image-container {
   display: block;
@@ -151,4 +150,10 @@ ul.ant-rate.ant-rate-disabled {
 .card-container label {
   font-size: 14px;
   font-weight: 500;
+}
+span.MuiRating-root.MuiRating-sizeMedium.MuiRating-readyOnly.css-ryrseu-MuiRating-root{
+  display: flex;
+  justify-content: center;
+
+  transform: translate(0%, 160px);
 }
